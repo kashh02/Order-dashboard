@@ -29,7 +29,9 @@ Make sure Node.js and npm are installed.
 
 Run:
 
+```bash
 npm install
+```
 
 This installs the dependencies listed in package.json, including Next.js, React, MongoDB, and Recharts.
 
@@ -51,7 +53,11 @@ Copy the MongoDB connection string.
 
 A connection string looks similar to:
 
+A connection string looks similar to:
+
+```text
 mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/
+```
 Replace <username> and <password> with your MongoDB database-user credentials.
 
 Do not commit your real MongoDB credentials to GitHub.
@@ -62,7 +68,9 @@ The repository contains .env.example, which shows the environment variables requ
 
 Create a new file named:
 
+```text
 .env.local
+```
 
 You can create it manually in VS Code or copy .env.example.
 
@@ -76,9 +84,10 @@ cp .env.example .env.local
 
 Now open .env.local and add your MongoDB connection details:
 
+```env
 MONGODB_URI="your-mongodb-connection-string"
 MONGODB_DB="analytics"
-
+```
 Example:
 
 MONGODB_URI="mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority"
@@ -87,8 +96,9 @@ MONGODB_DB="analytics"
 ### 5. Seed the database
 
 Run:
-
-npm run seed
+```bash
+npm run dev
+```
 
 This runs the seed script and inserts the sample order records into:
 
@@ -102,10 +112,10 @@ You can verify the data in MongoDB Atlas under:
 Database → Browse Collections → analytics → orders
 
 ### 6. Start the development server
-
+```bash
 Run:
 npm run dev
-
+```
 Then open:
 
 http://localhost:3000
@@ -113,25 +123,3 @@ http://localhost:3000
 The dashboard should now fetch analytics data from MongoDB and display it in the browser.
 
 
-
-## Project structure
-
-```
-app/
-  api/analytics/route.js   Aggregates orders and returns all dashboard data
-  api/options/route.js     Returns the values for the filter dropdowns
-  globals.css              All styling
-  layout.js                Page shell
-  page.js                  Dashboard page: state, fetching, loading and error states
-components/
-  Filters.js               Date range, status and category filters
-  SummaryCards.js          Total orders, total revenue, orders by status
-  RevenueChart.js          Revenue over time (line chart)
-  StatusChart.js           Orders by status (bar chart)
-  TopProducts.js           Top 5 products by revenue
-lib/
-  mongodb.js               Database connection
-  format.js                Currency, date and colour helpers
-scripts/
-  seed.js                  Sample data
-```
