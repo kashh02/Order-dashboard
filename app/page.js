@@ -86,6 +86,24 @@ export default function DashboardPage() {
         onReset={() => setFilters(EMPTY_FILTERS)}
       />
 
+      <p className="filter-summary">
+        
+        {filters.status === "all" &&
+        filters.category === "all" &&
+        !filters.from &&
+        !filters.to ? "Showing all orders" : `Filtered view${
+        filters.status !== "all" ? ` · ${filters.status}` : ""
+      }${
+        filters.category !== "all" ? ` · ${filters.category}` : ""
+      }${
+        filters.from ? ` · From ${filters.from}` : ""
+      }${
+        filters.to ? ` · To ${filters.to}` : ""
+      }`}
+      </p>
+
+      
+
       {dateError && (
         <p id="date-range-error" className="filter-error" role="alert">
           {dateError}

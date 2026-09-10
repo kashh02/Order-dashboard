@@ -76,6 +76,12 @@ body {
   font-size: 13px;
 }
 
+.filter-summary {
+  margin: -8px 0 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -143,6 +149,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  border-top: 3px solid var(--accent);
 }
 
 .summary-grid {

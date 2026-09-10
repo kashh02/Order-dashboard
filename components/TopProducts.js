@@ -13,9 +13,11 @@ export default function TopProducts({ data }) {
         <p className="empty">No products to show for these filters.</p>
       ) : (
         <ul className="product-list">
-          {data.map((item) => (
+          {data.map((item,index) => (
             <li className="product-row" key={item.product}>
-              <span>{item.product}</span>
+              <span> 
+                <strong>#{index+1}</strong> {item.product}
+              </span>
               <span className="revenue">{formatCurrency(item.revenue)}</span>
               <span className="units">{item.quantity} units sold</span>
               <span className="bar-track">
