@@ -16,10 +16,12 @@ A simple orders dashboard built with Next.js and MongoDB. It shows total orders,
 
 Clone the project from GitHub and move into the project folder.
 
+```bash
 git clone <your-github-repository-url>
 cd mongodb-analytics-dashboard
+```
 
-Replace <your-github-repository-url> with the actual GitHub repository URL.
+Replace `<your-github-repository-url>` with the actual GitHub repository URL.
 
 ### 2. Install dependencies
 
