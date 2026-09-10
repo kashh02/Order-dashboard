@@ -4,102 +4,113 @@ A simple orders dashboard built with Next.js and MongoDB. It shows total orders,
 
 ## Tech used
 
-- **Next.js 14** (App Router) — React frontend and API routes in one project
-- **MongoDB Node driver** — database queries and aggregation
-- **Recharts** — the line and bar charts
-- **Plain CSS** — one stylesheet, no UI framework
+- Next.js
+- React
+- MongoDB Atlas
+- Recharts
+- CSS
 
-## Requirements
+## Setup Instructions
 
-- Node.js 18 or newer
-- A MongoDB database (MongoDB Atlas free tier or a local MongoDB server)
+1. Clone the repository
 
-## Setup
+Clone the project from GitHub and move into the project folder.
 
-**1. Install dependencies**
+git clone <your-github-repository-url>
+cd mongodb-analytics-dashboard
 
-```bash
+Replace <your-github-repository-url> with the actual GitHub repository URL.
+
+2. Install dependencies
+
+Make sure Node.js and npm are installed.
+
+Run:
+
 npm install
-```
 
-**2. Add your environment variables**
+This installs the dependencies listed in package.json, including Next.js, React, MongoDB, and Recharts.
 
-Copy the example file and fill in your own connection string:
+3. Create a MongoDB Atlas database
 
-```bash
+Create or use a MongoDB Atlas project and cluster.
+
+Then:
+
+Create a database user.
+
+Add your current IP address under Network Access.
+
+Open Connect → Drivers.
+
+Select the Node.js driver.
+
+Copy the MongoDB connection string.
+
+A connection string looks similar to:
+
+mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/
+Replace <username> and <password> with your MongoDB database-user credentials.
+
+Do not commit your real MongoDB credentials to GitHub.
+
+4. Create the environment file
+
+The repository contains .env.example, which shows the environment variables required by the project.
+
+Create a new file named:
+
+.env.local
+
+You can create it manually in VS Code or copy .env.example.
+
+Windows PowerShell
+
+Copy-Item .env.example .env.local
+
+macOS / Linux
+
 cp .env.example .env.local
-```
 
-```
-MONGODB_URI="mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority"
+Now open .env.local and add your MongoDB connection details:
+
+MONGODB_URI="your-mongodb-connection-string"
 MONGODB_DB="analytics"
-```
 
-`.env.local` is ignored by git, so credentials never get committed.
+Example:
 
-**3. Seed the database**
+MONGODB_URI="mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority"
+MONGODB_DB="analytics"
 
-```bash
+5. Seed the database
+
+Run:
+
 npm run seed
-```
 
-This clears the `orders` collection and inserts 25 sample orders.
+This runs the seed script and inserts the sample order records into:
 
-**4. Run the app**
+Database: analytics
+Collection: orders
 
-```bash
+The project includes at least 20 sample order records.
+
+You can verify the data in MongoDB Atlas under:
+
+Database → Browse Collections → analytics → orders
+
+6. Start the development server
+
+Run:
 npm run dev
-```
 
-Open http://localhost:3000
+Then open:
 
-## MongoDB setup
+http://localhost:3000
 
-If you are using **MongoDB Atlas**:
+The dashboard should now fetch analytics data from MongoDB and display it in the browser.
 
-1. Create a free cluster at https://cloud.mongodb.com
-2. Under **Database Access**, create a database user with a password.
-3. Under **Network Access**, allow access from anywhere (`0.0.0.0/0`) so your deployed app can connect.
-4. Click **Connect → Drivers** and copy the connection string into `MONGODB_URI`.
-5. Run `npm run seed`. The `analytics` database and `orders` collection are created automatically.
 
-If you are running **MongoDB locally**, use:
-
-```
-MONGODB_URI="mongodb://localhost:27017"
-MONGODB_DB="analytics"
-```
-
-### Order document shape
-
-```js
-{
-  orderId: "ORD-1001",
-  customer: "Aarav Sharma",
-  product: "Wireless Headphones",
-  category: "Electronics",
-  status: "Delivered",
-  quantity: 1,
-  amount: 4999,
-  createdAt: ISODate("2026-06-03T10:15:00Z")
-}
-```
-
-## Deployment (Vercel)
-
-1. Push this repository to GitHub.
-2. Import the repository at https://vercel.com/new
-3. Add the environment variables `MONGODB_URI` and `MONGODB_DB` in **Settings → Environment Variables**.
-4. Deploy. Make sure Atlas Network Access allows `0.0.0.0/0`, otherwise the deployed app cannot reach the database.
-
-## Scripts
-
-| Command | What it does |
-| --- | --- |
-| `npm run dev` | Start the development server |
-| `npm run build` | Build for production |
-| `npm start` | Run the production build |
-| `npm run seed` | Insert the 25 sample orders |
 
 ## Project structure
 
