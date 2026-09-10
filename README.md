@@ -10,7 +10,7 @@ A simple orders dashboard built with Next.js and MongoDB. It shows total orders,
 - Recharts
 - CSS
 
-## Setup Instructions
+Local Setup
 
 1. Clone the repository
 
