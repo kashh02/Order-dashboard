@@ -18,7 +18,7 @@ Clone the project from GitHub and move into the project folder.
 
 ```bash
 git clone <your-github-repository-url>
-cd mongodb-analytics-dashboard
+cd Order-dashboard
 ```
 
 Replace `<your-github-repository-url>` with the actual GitHub repository URL.
@@ -50,8 +50,6 @@ Open Connect → Drivers.
 Select the Node.js driver.
 
 Copy the MongoDB connection string.
-
-A connection string looks similar to:
 
 A connection string looks similar to:
 
@@ -97,7 +95,7 @@ MONGODB_DB="analytics"
 
 Run:
 ```bash
-npm run dev
+npm run seed
 ```
 
 This runs the seed script and inserts the sample order records into:
