@@ -8,6 +8,17 @@ import StatusChart from "@/components/StatusChart";
 import TopProducts from "@/components/TopProducts";
 
 const EMPTY_FILTERS = {from: "", to: "", status: "all", category: "all"};
+function formatFilterDate(dateString) {
+  if (!dateString) return "";
+
+  const date = new Date(`${dateString}T00:00:00Z`);
+
+  return date.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric"
+  });
+}
 
 export default function DashboardPage() {
   const [filters, setFilters] = useState(EMPTY_FILTERS);
@@ -96,9 +107,9 @@ export default function DashboardPage() {
       }${
         filters.category !== "all" ? ` · ${filters.category}` : ""
       }${
-        filters.from ? ` · From ${filters.from}` : ""
+        filters.from ? ` · From ${formatFilterDate(filters.from)}` : ""
       }${
-        filters.to ? ` · To ${filters.to}` : ""
+        filters.to ? ` · To ${formatFilterDate(filters.to)}` : ""
       }`}
       </p>
 

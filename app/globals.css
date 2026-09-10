@@ -149,7 +149,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-top: 3px solid var(--accent);
+  border-top: 2px solid var(--accent);
 }
 
 .summary-grid {
