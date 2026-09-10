@@ -10,9 +10,9 @@ A simple orders dashboard built with Next.js and MongoDB. It shows total orders,
 - Recharts
 - CSS
 
-Local Setup
+##Local Setup
 
-1. Clone the repository
+###1. Clone the repository
 
 Clone the project from GitHub and move into the project folder.
 
@@ -21,7 +21,7 @@ cd mongodb-analytics-dashboard
 
 Replace <your-github-repository-url> with the actual GitHub repository URL.
 
-2. Install dependencies
+###2. Install dependencies
 
 Make sure Node.js and npm are installed.
 
@@ -31,7 +31,7 @@ npm install
 
 This installs the dependencies listed in package.json, including Next.js, React, MongoDB, and Recharts.
 
-3. Create a MongoDB Atlas database
+###3. Create a MongoDB Atlas database
 
 Create or use a MongoDB Atlas project and cluster.
 
@@ -54,7 +54,7 @@ Replace <username> and <password> with your MongoDB database-user credentials.
 
 Do not commit your real MongoDB credentials to GitHub.
 
-4. Create the environment file
+###4. Create the environment file
 
 The repository contains .env.example, which shows the environment variables required by the project.
 
@@ -82,7 +82,7 @@ Example:
 MONGODB_URI="mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/?retryWrites=true&w=majority"
 MONGODB_DB="analytics"
 
-5. Seed the database
+###5. Seed the database
 
 Run:
 
@@ -99,7 +99,7 @@ You can verify the data in MongoDB Atlas under:
 
 Database → Browse Collections → analytics → orders
 
-6. Start the development server
+###6. Start the development server
 
 Run:
 npm run dev
